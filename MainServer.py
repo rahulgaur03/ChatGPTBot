@@ -1,5 +1,3 @@
-import time
-import os 
 import flask
 import sys
 from flask import g
@@ -21,6 +19,7 @@ def start_browser():
             headless=False,
         )
         page = browser.new_page()
+        browser.pages[0].close()
     page.goto("https://chat.openai.com/")
     if not is_logged_in():
         print("Please log in to OpenAI Chat")
